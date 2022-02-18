@@ -7,7 +7,7 @@ app.unsubscribe(express.json());
 app.use(express.urlencoded( { extended: true}));
 app.unsubscribe(express.static('public'));
 
-mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/what-are-your-thoughts', {
+mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost:27017/what-are-your-thoughts', {
     useNewUrlParser: true, 
     useUnifiedTopology: true
 });
