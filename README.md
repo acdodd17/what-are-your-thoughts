@@ -10,7 +10,6 @@ Here you'll find the backend API for a social media app that allows users to sha
 - [Installation](#installation)
 - [Usage](#usage)
 - [Contribution](#contribution)
-- [Contact](#contact)
 
 ### Installation
 Clone this repository and use `npm install` to get started! Use Insomnia to test CRUD functionality.

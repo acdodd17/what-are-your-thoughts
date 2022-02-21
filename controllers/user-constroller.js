@@ -64,16 +64,16 @@ const userController = {
     // DELETE to remove user by _id
         // Remove User's associated thoughts when deleted
     deleteUser({ params }, res) {
-        User.findById( params.id )
+        User.findById(params.id)
         .then(dbUserData => {
             if (!dbUserData) {
                 res.status(404).json({ message: 'No user found with this id!' });
                 return;
             }
-            Thought.deleteMany({_id: { $in: dbUserData.thoughts}}) 
+            Thought.deleteMany({_id: { $in: dbUserData.thoughts}})
+            .then(User.findByIdAndDelete(params.id))
+            .then(() => res.status(204).json({ message: 'User and their thoughts successfully deleted!'}))
         })
-        .then(User.findByIdAndDelete(params.id))
-        .then(() => res.status(204).json({ message: 'Thoughts successfully deleted'}))
         .catch(err => res.status(400).json(err));
     },
     // POST to add a new friend to user's friend list
