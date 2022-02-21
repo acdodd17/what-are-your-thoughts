@@ -47,7 +47,7 @@ const userController = {
     createUser({ body }, res) {
         User.create(body)
         .then(dbUserData => res.json(dbUserData))
-        .catch(err => res.json(err));
+        .catch(err => res.status(400).json(err));
     },
     // PUT to update user by _id
     updateUser({ params, body }, res) {
